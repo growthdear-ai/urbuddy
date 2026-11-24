@@ -1,6 +1,6 @@
 <div align="center">
 
-# For U (urbuddy)
+# 🐟 CampusFish
 
 ### Your campus, but nothing slips through.
 
@@ -9,11 +9,11 @@ An AI agent that reads your university and college notice pages, understands wha
 **Exam timetables · Fee deadlines · Revaluation windows · Results · Scholarships · Internships**
 
 [![Status](https://img.shields.io/badge/status-live%20demo-2dd4bf?style=flat-square)](#honest-status)
-[![GitHub](https://img.shields.io/badge/github-growthdear--ai%2Furbuddy-181717?style=flat-square&logo=github)](https://github.com/growthdear-ai/urbuddy)
+[![Telegram](https://img.shields.io/badge/alerts-Telegram-229ED9?style=flat-square&logo=telegram&logoColor=white)](https://t.me/CampusFishbot)
 
 <a href="https://tinyfish.ai"><img src="docs/tinyfish-logo.svg" alt="TinyFish" height="26" /></a>
 
-<img src="docs/screenshots/landing.png" alt="For U landing page" width="100%" />
+<img src="docs/screenshots/landing.png" alt="CampusFish landing page" width="100%" />
 
 </div>
 
@@ -27,9 +27,9 @@ A circular goes up on a dusty portal. A PDF gets buried three clicks deep. Someo
 
 The information exists. It's just never *yours*.
 
-## What For U does
+## What CampusFish does
 
-Instead of another notice board you have to remember to check, For U works like a student who never sleeps:
+Instead of another notice board you have to remember to check, CampusFish works like a student who never sleeps:
 
 | | |
 |---|---|
@@ -40,11 +40,11 @@ Instead of another notice board you have to remember to check, For U works like 
 | 💬 **Tells you** | Sends a short, friendly Telegram message with the deadline and a link to the official document. |
 | 🗣️ **Answers** | Ask "when is my exam fee due?" and get an answer written only from captured official notices, with citations. |
 
-## A day with For U
+## A day with CampusFish
 
 ```
 09:00  VTU posts a revised academic calendar
-09:02  For U notices the page changed
+09:02  CampusFish notices the page changed
 09:03  The agent opens it, reads it, classifies it
 09:03  It checks: does this affect CSE-AIML, semester 7, 2022 scheme?
 09:04  Your phone buzzes — summary, deadline, link to the PDF
@@ -60,7 +60,7 @@ Instead of another notice board you have to remember to check, For U works like 
 ### Your dashboard
 A calm briefing, not a wall of notices. What matters, what's due, and why it applies to you.
 
-<img src="docs/screenshots/overview.png" alt="For U dashboard" width="100%" />
+<img src="docs/screenshots/overview.png" alt="CampusFish dashboard" width="100%" />
 
 </td>
 <td width="50%">
@@ -68,7 +68,7 @@ A calm briefing, not a wall of notices. What matters, what's due, and why it app
 ### Discover
 Every captured notice in one place, colour-coded by type, filterable, always linked to the original document.
 
-<img src="docs/screenshots/discover.png" alt="For U discover feed" width="100%" />
+<img src="docs/screenshots/discover.png" alt="CampusFish discover feed" width="100%" />
 
 </td>
 </tr>
@@ -76,9 +76,9 @@ Every captured notice in one place, colour-coded by type, filterable, always lin
 
 ### Watch the agent work
 
-For U doesn't hide the magic. Open a scan and you can watch the browser agent navigate the portal, page through the archive, and extract the notices — step by step.
+CampusFish doesn't hide the magic. Open a scan and you can watch the browser agent navigate the portal, page through the archive, and extract the notices — step by step.
 
-<img src="docs/screenshots/research.png" alt="For U research and live agent trace" width="100%" />
+<img src="docs/screenshots/research.png" alt="CampusFish research and live agent trace" width="100%" />
 
 ## Personal, not broadcast
 
@@ -92,17 +92,17 @@ The same circular means different things to different students.
 
 Nothing is sent twice. Every alert links to the official source.
 
-## Ask For U
+## Ask CampusFish
 
 > "Is there a supplementary exam application for my semester?"
 > "What changed in the exam regulations?"
 > "Am I eligible for this scholarship?"
 
-Answers are generated **only** from notices For U has captured. If the documents don't cover it, For U says so instead of writing something confident and wrong. Every answer comes with numbered links to the documents used.
+Answers are generated **only** from notices CampusFish has captured. If the documents don't cover it, CampusFish says so instead of writing something confident and wrong. Every answer comes with numbered links to the documents used.
 
 ## One agent, any portal
 
-For U isn't wired to VTU. Add any university, college, board or scholarship page — a URL is the only configuration. The agent reads the page like a human, so a redesign or a new institution doesn't need new code.
+CampusFish isn't wired to VTU. Add any university, college, board or scholarship page — a URL is the only configuration. The agent reads the page like a human, so a redesign or a new institution doesn't need new code.
 
 The demo persona is a **VTU student (CSE-AIML, 7th semester, 2022 scheme)**. Point it at your own portal and it works the same way.
 
@@ -172,20 +172,16 @@ A few decisions worth knowing:
 
 <br />
 
-**Prerequisites:** Python 3.11+, Node.js 18+, and a [TinyFish](https://tinyfish.ai) API key. Optional: [Ollama](https://ollama.com) with `llama3.2:3b` or Anthropic API key for AI-driven classification.
+**You need:** Python 3.11+, Node 18+, [Ollama](https://ollama.com) with `llama3.2:3b`, and a TinyFish API key.
 
 ```bash
-# Clone the repository
-git clone https://github.com/growthdear-ai/urbuddy.git
-cd urbuddy
-
 # 1. Backend
 cd backend
 python -m venv .venv
 .venv\Scripts\activate        # Windows
 # source .venv/bin/activate   # macOS / Linux
 pip install -r requirements.txt
-cp .env.example .env          # Set TINYFISH_API_KEY, SEED_SAMPLE_DATA=true
+cp .env.example .env          # add TINYFISH_API_KEY, TELEGRAM_BOT_TOKEN
 uvicorn app.main:app --port 8000
 
 # 2. Frontend
@@ -194,10 +190,7 @@ npm install
 npm run dev                   # http://localhost:3000
 ```
 
-- **Web App:** http://localhost:3000
-- **API Server & Docs:** http://127.0.0.1:8000/docs
-
-Link Telegram by messaging your configured bot with `/start <your-user-id>`.
+Link Telegram by messaging [@CampusFishbot](https://t.me/CampusFishbot) with `/start <your-user-id>`.
 
 </details>
 
@@ -205,7 +198,7 @@ Link Telegram by messaging your configured bot with `/start <your-user-id>`.
 
 <div align="center">
 
-**For U** — because the notice was always there. You just never saw it.
+**CampusFish** — because the notice was always there. You just never saw it.
 
 Built with [TinyFish](https://tinyfish.ai) · FastAPI · Next.js · Ollama
 
