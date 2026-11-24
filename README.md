@@ -1,6 +1,6 @@
 <div align="center">
 
-# For U
+# For U (urbuddy)
 
 ### Your campus, but nothing slips through.
 
@@ -9,7 +9,7 @@ An AI agent that reads your university and college notice pages, understands wha
 **Exam timetables · Fee deadlines · Revaluation windows · Results · Scholarships · Internships**
 
 [![Status](https://img.shields.io/badge/status-live%20demo-2dd4bf?style=flat-square)](#honest-status)
-[![Telegram](https://img.shields.io/badge/alerts-Telegram-229ED9?style=flat-square&logo=telegram&logoColor=white)](https://t.me/CampusFishbot)
+[![GitHub](https://img.shields.io/badge/github-growthdear--ai%2Furbuddy-181717?style=flat-square&logo=github)](https://github.com/growthdear-ai/urbuddy)
 
 <a href="https://tinyfish.ai"><img src="docs/tinyfish-logo.svg" alt="TinyFish" height="26" /></a>
 
@@ -172,16 +172,20 @@ A few decisions worth knowing:
 
 <br />
 
-**You need:** Python 3.11+, Node 18+, [Ollama](https://ollama.com) with `llama3.2:3b`, and a TinyFish API key.
+**Prerequisites:** Python 3.11+, Node.js 18+, and a [TinyFish](https://tinyfish.ai) API key. Optional: [Ollama](https://ollama.com) with `llama3.2:3b` or Anthropic API key for AI-driven classification.
 
 ```bash
+# Clone the repository
+git clone https://github.com/growthdear-ai/urbuddy.git
+cd urbuddy
+
 # 1. Backend
 cd backend
 python -m venv .venv
 .venv\Scripts\activate        # Windows
 # source .venv/bin/activate   # macOS / Linux
 pip install -r requirements.txt
-cp .env.example .env          # add TINYFISH_API_KEY, TELEGRAM_BOT_TOKEN
+cp .env.example .env          # Set TINYFISH_API_KEY, SEED_SAMPLE_DATA=true
 uvicorn app.main:app --port 8000
 
 # 2. Frontend
@@ -190,7 +194,10 @@ npm install
 npm run dev                   # http://localhost:3000
 ```
 
-Link Telegram by messaging [@CampusFishbot](https://t.me/CampusFishbot) with `/start <your-user-id>`.
+- **Web App:** http://localhost:3000
+- **API Server & Docs:** http://127.0.0.1:8000/docs
+
+Link Telegram by messaging your configured bot with `/start <your-user-id>`.
 
 </details>
 
